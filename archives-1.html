@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>முந்தைய தொகுதிகள் — மௌவல் ஓசை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800;900&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B2118; --leaf:#F2E8D5; --bark:#3A2E26;
+    --thread:#8B3A2A; --gold:#B8923F; --gold-soft:#D8B96A;
+    --line:rgba(43,33,24,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--leaf); color:var(--ink); font-family:'Noto Sans Tamil',sans-serif; line-height:1.7;}
+  a{color:inherit; text-decoration:none;}
+  nav{
+    position:sticky; top:0; z-index:50; background:rgba(242,232,213,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:18px 6vw;
+  }
+  .nav-brand{font-family:'Catamaran',sans-serif; font-weight:800; font-size:1.25rem; color:var(--bark);}
+  .nav-brand span{color:var(--thread);}
+  .nav-links{display:flex; gap:32px; font-size:0.95rem; font-weight:500;}
+  .nav-links a:hover{color:var(--thread);}
+
+  .page-head{padding:70px 6vw 40px; max-width:900px; margin:0 auto; text-align:center;}
+  .tag{font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+  .page-head h1{font-family:'Catamaran',sans-serif; font-weight:900; font-size:clamp(2rem,4.5vw,3rem); color:var(--bark); margin:14px 0;}
+  .page-head p{color:#574737; max-width:600px; margin:0 auto;}
+
+  main{max-width:900px; margin:0 auto; padding:20px 6vw 100px;}
+  .vol-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .vol-card{
+    border:1px solid var(--line); border-radius:10px; padding:28px 24px;
+    background:rgba(255,255,255,0.4); position:relative; overflow:hidden;
+  }
+  .vol-card.upcoming{opacity:0.55; border-style:dashed;}
+  .vol-num{font-family:'Catamaran',sans-serif; font-weight:900; font-size:2.4rem; color:var(--thread); line-height:1;}
+  .vol-card h3{font-family:'Catamaran',sans-serif; font-size:1.1rem; margin:10px 0 6px; color:var(--bark);}
+  .vol-card p{font-size:0.88rem; color:#6b5b46;}
+  .vol-status{
+    display:inline-block; margin-top:14px; font-size:0.78rem; font-weight:700;
+    letter-spacing:0.04em; text-transform:uppercase; color:var(--gold);
+  }
+
+  footer{background:var(--bark); color:rgba(242,232,213,0.7); padding:36px 6vw; text-align:center; font-size:0.85rem;}
+  footer a{color:var(--gold-soft);}
+  @media (max-width:860px){.nav-links{display:none;} .vol-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">மௌவல் <span>ஓசை</span></div>
+  <div class="nav-links">
+    <a href="index.html#about">அறக்கட்டளை</a>
+    <a href="index.html#journal">இதழ் பற்றி</a>
+    <a href="issue.html">தற்போதைய இதழ்</a>
+    <a href="archives.html">முந்தைய தொகுதிகள்</a>
+    <a href="index.html#contact">தொடர்பு</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <span class="tag">காப்பகம்</span>
+  <h1>முந்தைய தொகுதிகள்</h1>
+  <p>இது அறக்கட்டளையின் முதல் ஆண்டு என்பதால், தொகுதி 01 மட்டுமே தற்போது தயாராகி வருகிறது. ஒவ்வொரு ஆண்டும் வெளியாகும் தொகுதிகள் இங்கு சேர்க்கப்படும்.</p>
+</header>
+
+<main>
+  <div class="vol-grid">
+    <div class="vol-card">
+      <span class="vol-num">01</span>
+      <h3>தொகுதி 01 — 2026</h3>
+      <p>முதல் ஆய்வுக் கருத்தரங்கின் கட்டுரைத் தொகுப்பு</p>
+      <span class="vol-status">தயாராகிறது</span>
+    </div>
+    <div class="vol-card upcoming">
+      <span class="vol-num">02</span>
+      <h3>தொகுதி 02 — 2027</h3>
+      <p>அடுத்த ஆண்டு கருத்தரங்கின் பின் வெளியிடப்படும்</p>
+      <span class="vol-status">வரவுள்ளது</span>
+    </div>
+    <div class="vol-card upcoming">
+      <span class="vol-num">03</span>
+      <h3>தொகுதி 03 — 2028</h3>
+      <p>தொடர்ந்து ஆண்டுதோறும் வெளியிடப்படும்</p>
+      <span class="vol-status">வரவுள்ளது</span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 மௌவல் அறக்கட்டளை · <a href="index.html">முகப்புப் பக்கம்</a>
+</footer>
+
+</body>
+</html>

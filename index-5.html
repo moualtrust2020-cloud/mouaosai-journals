@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>மௌவல் ஓசை — ஆய்விதழ்</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Catamaran:wght@400;600;800;900&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#9B4D8C;
+    --primary-dark:#7A3B6F;
+    --primary-light:#C875B0;
+    --rose:#D97BA7;
+    --yellow:#F4D03F;
+    --dark:#2C1B3D;
+    --light:#FBF8F3;
+    --accent:#F5E6D3;
+    --gold:#D4A574;
+    --gray:#5C4B5C;
+    --gray-light:#E8DFE8;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  
+  body{
+    background:linear-gradient(135deg, #FBF8F3 0%, #F5E6D3 50%, #FFF9E6 100%);
+    background-attachment:fixed;
+    color:var(--dark);
+    font-family:'Noto Sans Tamil','Poppins',sans-serif;
+    line-height:1.6;
+    position:relative;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(155, 77, 140, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 85% 70%, rgba(217, 123, 167, 0.07) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(244, 208, 63, 0.04) 0%, transparent 50%),
+      repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(155, 77, 140, 0.02) 100px, rgba(155, 77, 140, 0.02) 200px);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 6vw;
+    background:rgba(251, 248, 243, 0.95);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 8px rgba(155, 77, 140, 0.08);
+  }
+
+  .nav-brand{
+    font-size:1.5rem;
+    font-weight:700;
+    background:linear-gradient(135deg, var(--primary) 0%, var(--rose) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  .nav-right{
+    display:flex;
+    gap:30px;
+    align-items:center;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:40px;
+  }
+
+  .nav-links a{
+    font-weight:500;
+    color:var(--gray);
+    transition:color 0.3s ease;
+  }
+
+  .nav-links a:hover{
+    color:var(--primary);
+  }
+
+  .lang-toggle{
+    display:flex;
+    gap:10px;
+    background:var(--gray-light);
+    padding:8px 12px;
+    border-radius:20px;
+    cursor:pointer;
+  }
+
+  .lang-btn{
+    padding:6px 14px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-weight:600;
+    color:var(--gray);
+    font-size:0.85rem;
+    border-radius:15px;
+    transition:all 0.3s ease;
+  }
+
+  .lang-btn.active{
+    background:white;
+    color:var(--primary);
+    box-shadow:0 2px 6px rgba(155, 77, 140, 0.15);
+  }
+
+  .hidden-en{
+    display:none;
+  }
+
+  .hidden-ta{
+    display:block;
+  }
+
+  html[data-lang="en"] .hidden-en{
+    display:block;
+  }
+
+  html[data-lang="en"] .hidden-ta{
+    display:none;
+  }
+
+  section{
+    padding:100px 6vw;
+    max-width:1400px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+
+  .hero{
+    padding:80px 6vw 60px;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:2.8rem;
+    font-weight:800;
+    margin-bottom:20px;
+    background:linear-gradient(135deg, var(--primary) 0%, var(--rose) 50%, var(--yellow) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  .hero p{
+    font-size:1.1rem;
+    color:var(--gray);
+    margin-bottom:30px;
+    line-height:1.8;
+  }
+
+  .cta-button{
+    display:inline-block;
+    padding:14px 36px;
+    background:linear-gradient(135deg, var(--primary) 0%, var(--rose) 100%);
+    color:white;
+    border-radius:30px;
+    font-weight:600;
+    transition:all 0.3s ease;
+    box-shadow:0 4px 15px rgba(155, 77, 140, 0.25);
+    margin-top:20px;
+  }
+
+  .cta-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 20px rgba(155, 77, 140, 0.35);
+  }
+
+  .submit-btn{
+    display:inline-block;
+    padding:12px 28px;
+    background:linear-gradient(135deg, var(--primary) 0%, var(--rose) 100%);
+    color:white;
+    border-radius:25px;
+    font-weight:600;
+    transition:all 0.3s ease;
+    margin:20px 10px;
+    text-align:center;
+    cursor:pointer;
+    border:none;
+  }
+
+  .submit-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(155, 77, 140, 0.3);
+  }
+
+  .section-head{
+    text-align:center;
+    margin-bottom:60px;
+  }
+
+  .section-tag{
+    display:inline-block;
+    padding:8px 16px;
+    background:var(--yellow);
+    color:var(--dark);
+    border-radius:20px;
+    font-weight:600;
+    font-size:0.85rem;
+    margin-bottom:16px;
+  }
+
+  .section-head h2{
+    font-size:2.2rem;
+    font-weight:800;
+    color:var(--dark);
+    margin-bottom:12px;
+  }
+
+  .section-head p{
+    font-size:1.05rem;
+    color:var(--gray);
+    line-height:1.6;
+  }
+
+  .about-section{
+    background:linear-gradient(135deg, rgba(155, 77, 140, 0.05) 0%, rgba(217, 123, 167, 0.03) 100%);
+    padding:40px;
+    border-radius:12px;
+    margin:40px 0;
+    border-left:4px solid var(--primary);
+  }
+
+  .about-section h3{
+    color:var(--primary);
+    font-size:1.3rem;
+    margin-bottom:20px;
+    font-weight:700;
+  }
+
+  .about-section p{
+    color:var(--gray);
+    line-height:1.8;
+    margin-bottom:16px;
+  }
+
+  .timeline{
+    margin-top:40px;
+    position:relative;
+  }
+
+  .timeline-item{
+    margin-bottom:30px;
+    padding-left:30px;
+    position:relative;
+  }
+
+  .timeline-item::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:16px;
+    height:16px;
+    background:var(--primary);
+    border-radius:50%;
+    border:3px solid white;
+    box-shadow:0 0 0 3px var(--primary);
+  }
+
+  .timeline-year{
+    font-weight:700;
+    color:var(--primary);
+    font-size:0.95rem;
+  }
+
+  .timeline-item p{
+    margin-top:8px;
+    color:var(--gray);
+    font-size:0.95rem;
+  }
+
+  .steps-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:40px;
+    margin-top:60px;
+    position:relative;
+  }
+
+  .steps-grid::before{
+    content:"";
+    position:absolute;
+    top:40px;
+    left:0;
+    right:0;
+    height:2px;
+    background:var(--gray-light);
+    z-index:0;
+  }
+
+  .step{
+    position:relative;
+    text-align:center;
+    z-index:1;
+    padding-right:20px;
+    border-right:1px solid var(--gray-light);
+  }
+
+  .step:last-child{
+    border-right:none;
+    padding-right:0;
+  }
+
+  .step-num{
+    width:80px;
+    height:80px;
+    background:linear-gradient(135deg, var(--primary) 0%, var(--rose) 100%);
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.8rem;
+    font-weight:800;
+    margin:0 auto 20px;
+  }
+
+  .step h4{
+    font-size:1.05rem;
+    margin-bottom:12px;
+    color:var(--dark);
+  }
+
+  .step p{
+    color:var(--gray);
+    font-size:0.95rem;
+    line-height:1.6;
+  }
+
+  .fee-section{
+    display:none;
+  }
+
+  .board-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    margin-top:60px;
+  }
+
+  .board-group{
+    background:linear-gradient(135deg, rgba(155, 77, 140, 0.05) 0%, rgba(217, 123, 167, 0.03) 100%);
+    padding:40px;
+    border-radius:12px;
+    border-left:4px solid var(--primary);
+  }
+
+  .board-group h3{
+    font-size:1.4rem;
+    color:var(--primary);
+    margin-bottom:30px;
+    font-weight:700;
+  }
+
+  .board-member{
+    margin-bottom:30px;
+    padding-bottom:30px;
+    border-bottom:1px solid rgba(155, 77, 140, 0.1);
+  }
+
+  .board-member:last-child{
+    border-bottom:none;
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+
+  .member-name{
+    font-weight:700;
+    color:var(--dark);
+    font-size:1rem;
+    margin-bottom:6px;
+  }
+
+  .member-title{
+    font-size:0.95rem;
+    color:var(--gray);
+    line-height:1.5;
+  }
+
+  .guidelines-box{
+    background:linear-gradient(135deg, rgba(244, 208, 63, 0.08) 0%, rgba(217, 123, 167, 0.05) 100%);
+    padding:40px;
+    border-radius:12px;
+    border:1px solid rgba(244, 208, 63, 0.2);
+    margin-top:40px;
+  }
+
+  .guidelines-box h4{
+    font-size:1.1rem;
+    color:var(--primary);
+    margin-bottom:20px;
+    font-weight:700;
+  }
+
+  .guidelines-list{
+    list-style:none;
+  }
+
+  .guidelines-list li{
+    margin-bottom:18px;
+    padding-left:30px;
+    position:relative;
+    color:var(--gray);
+    font-size:0.95rem;
+    line-height:1.6;
+  }
+
+  .guidelines-list li:before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:var(--primary);
+    font-weight:700;
+    font-size:1.1rem;
+  }
+
+  .guidelines-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:30px;
+  }
+
+  footer{
+    background:linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+    color:white;
+    padding:0;
+    margin-top:80px;
+  }
+
+  .footer-banner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    width:100%;
+    background:linear-gradient(135deg, rgba(244, 208, 63, 0.1) 0%, rgba(217, 123, 167, 0.08) 100%);
+    padding:30px 0;
+    border-top:4px solid var(--yellow);
+    border-bottom:4px solid var(--primary);
+  }
+
+  .banner-left{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+  }
+
+  .banner-right{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+  }
+
+  .banner-logo{
+    max-width:280px;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition:transform 0.3s ease;
+  }
+
+  .banner-logo:hover{
+    transform:scale(1.05);
+  }
+
+  .banner-scholars{
+    max-width:320px;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transition:transform 0.3s ease;
+  }
+
+  .banner-scholars:hover{
+    transform:scale(1.03);
+  }
+
+  .footer-content{
+    padding:60px 6vw 30px;
+  }
+
+  .footer-content{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:40px;
+    max-width:1400px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+    font-size:1.1rem;
+    margin-bottom:20px;
+    font-weight:700;
+  }
+
+  footer a{
+    display:block;
+    margin-bottom:12px;
+    opacity:0.85;
+    transition:opacity 0.3s ease;
+  }
+
+  footer a:hover{
+    opacity:1;
+  }
+
+  footer p{
+    opacity:0.85;
+    line-height:1.8;
+  }
+
+  .footer-bottom{
+    text-align:center;
+    padding-top:30px;
+    border-top:1px solid rgba(255, 255, 255, 0.1);
+    opacity:0.7;
+    font-size:0.9rem;
+  }
+
+  @media (max-width:768px){
+    .board-grid{grid-template-columns:1fr;}
+    .guidelines-grid{grid-template-columns:1fr;}
+    .steps-grid{grid-template-columns:1fr 1fr;}
+    .footer-content{grid-template-columns:1fr 1fr;}
+    .footer-banner{grid-template-columns:1fr;}
+    .banner-logo{max-width:200px;}
+    .banner-scholars{max-width:220px;}
+  }
+
+  @media (max-width:480px){
+    nav{padding:14px 4vw;}
+    .nav-brand{font-size:1.2rem;}
+    .nav-links{display:none;}
+    .nav-right{gap:15px;}
+    section{padding:60px 4vw;}
+    .hero{padding:60px 4vw 40px;}
+    .hero h1{font-size:1.6rem;}
+    .steps-grid{grid-template-columns:1fr;}
+    .step{border-right:none; border-bottom:1px solid var(--gray-light);}
+    .step:last-child{border-bottom:none;}
+    .footer-content{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">🌴 Mauval</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#home" class="hidden-ta">வீடு</a>
+      <a href="#home" class="hidden-en">Home</a>
+      <a href="#about" class="hidden-ta">பற்றி</a>
+      <a href="#about" class="hidden-en">About</a>
+      <a href="#guidelines" class="hidden-ta">வழிகாட்டுதல்கள்</a>
+      <a href="#guidelines" class="hidden-en">Guidelines</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLanguage('ta')" id="ta-btn">தமிழ்</button>
+      <button class="lang-btn" onclick="setLanguage('en')" id="en-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <h1 class="hidden-ta">தமிழ் மற்றும் ஆங்கில இலக்கிய பன்னாட்டு ஆய்விதழ்</h1>
+  <h1 class="hidden-en">Tamil & English Literary International Journal</h1>
+  
+  <p class="hidden-ta">அறக்கட்டளை வெளியிடும் வருடாந்திர ஆய்விதழ்</p>
+  <p class="hidden-en">Annual Research Journal Published by the Trust</p>
+  
+  <a href="#submit" class="cta-button hidden-ta">🚀 மலர்க</a>
+  <a href="#submit" class="cta-button hidden-en">🚀 Explore</a>
+
+  <div style="margin-top:40px;">
+    <a href="#submit" class="submit-btn hidden-ta">📝 கட்டுரை சமர்ப்பிக்க</a>
+    <a href="#submit" class="submit-btn hidden-en">📝 Submit Article</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head">
+    <span class="section-tag hidden-ta">பற்றி</span>
+    <span class="section-tag hidden-en">ABOUT</span>
+    <h2 class="hidden-ta">மௌவல் அறக்கட்டளை</h2>
+    <h2 class="hidden-en">Mauval Trust</h2>
+  </div>
+
+  <div class="about-section">
+    <h3 class="hidden-ta">🌿 தமிழ் இலக்கிய மாநாடு</h3>
+    <h3 class="hidden-en">🌿 Tamil Literary Conference</h3>
+    
+    <p class="hidden-ta">மௌவல் அறக்கட்டளையின் <strong>இலக்கிய மேம்பாடு மற்றும் சமூக பணிப்பாரம்பரியம்</strong>ன் நீட்சியாகவே <strong>"மௌவல் ஓசை இலக்கிய மொழியியல் பன்னாட்டு ஆய்விதழ்"</strong> உருவாக்கப்பட்டுள்ளது.</p>
+    <p class="hidden-en">The <strong>"Mauval Osai Literary Linguistics International Journal"</strong> is an extension of Mauval Trust's mission for literary advancement and social responsibility.</p>
+
+    <div class="timeline hidden-ta">
+      <div class="timeline-item">
+        <span class="timeline-year">2020 - மௌவல் அறக்கட்டளை</span>
+        <p>திண்டிவனத்தில் மௌவல் அறக்கட்டளை (BKTV 9/2020) நிறுவப்பட்டது.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2026 - இலக்கிய மொழியியல் பன்னாட்டு ஆய்விதழ்</span>
+        <p>இலக்கிய மொழியியல் பன்னாட்டு ஆய்விதழை துவக்கி, உலகம் முழுவதும் உள்ள ஆய்வாளர்களின் ஆய்வுக்கட்டுரைகளை ISSN தரத்துடன் வெளியிடும் உயர்ந்த பணிக்கு இணைந்தது.</p>
+      </div>
+    </div>
+
+    <div class="timeline hidden-en">
+      <div class="timeline-item">
+        <span class="timeline-year">2020 - Mauval Trust Founded</span>
+        <p>Mauval Trust (Reg. No. BKTV 9/2020) established in Tindivanam.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2026 - International Journal Launch</span>
+        <p>Launched the Literary Linguistics International Journal to publish research articles with ISSN standards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="submit">
+  <div class="section-head">
+    <span class="section-tag hidden-ta">சமர்ப்பித்தல்</span>
+    <span class="section-tag hidden-en">SUBMISSION</span>
+    <h2 class="hidden-ta">கட்டுரை சமர்ப்பிக்க</h2>
+    <h2 class="hidden-en">Submit Your Article</h2>
+  </div>
+
+  <div style="text-align:center; margin:40px 0;">
+    <button class="submit-btn hidden-ta" onclick="alert('மின்னஞ்சல்: moualtrust2020@gmail.com | தொலைபேசி: 8825927692')">📧 தொடர்பு கொள்ளுங்கள்</button>
+    <button class="submit-btn hidden-en" onclick="alert('Email: moualtrust2020@gmail.com | Phone: 8825927692')">📧 Get in Touch</button>
+  </div>
+</section>
+
+<section id="guidelines">
+  <div class="section-head">
+    <span class="section-tag hidden-ta">ஆய்வு வழிகாட்டுதல்</span>
+    <span class="section-tag hidden-en">GUIDELINES</span>
+    <h2 class="hidden-ta">கட்டுரை தயாரிப்பு வழிகாட்டுதல்கள்</h2>
+    <h2 class="hidden-en">Article Preparation Guidelines</h2>
+  </div>
+
+  <div class="guidelines-box">
+    <h4 class="hidden-ta">📝 கட்டுரையின் வடிவம் (Article Format)</h4>
+    <h4 class="hidden-en">📝 Article Format</h4>
+    <ul class="guidelines-list">
+      <li class="hidden-ta"><strong>மொழி:</strong> தமிழ் மற்றும் ஆங்கிலம்</li>
+      <li class="hidden-ta"><strong>கட்டுரை:</strong> தமிழ் - யுனிகோடு (Unicode) எழுத்துரு - 12 புள்ளிகள்</li>
+      <li class="hidden-ta"><strong>ஆங்கிலம்:</strong> Times New Roman - 12 புள்ளிகள்</li>
+      <li class="hidden-ta"><strong>வரி இடைவெளி:</strong> 1.15</li>
+      <li class="hidden-ta"><strong>கட்டுரை நீளம்:</strong> 7 - 8 பக்கம்</li>
+      <li class="hidden-ta"><strong>ஆசிரியர்கள்:</strong> 1 முதல் 5 வரை</li>
+      
+      <li class="hidden-en"><strong>Languages:</strong> Tamil and English</li>
+      <li class="hidden-en"><strong>Tamil:</strong> Unicode font - 12 points</li>
+      <li class="hidden-en"><strong>English:</strong> Times New Roman - 12 points</li>
+      <li class="hidden-en"><strong>Line Spacing:</strong> 1.15</li>
+      <li class="hidden-en"><strong>Article Length:</strong> 7-8 pages</li>
+      <li class="hidden-en"><strong>Authors:</strong> 1 to 5</li>
+    </ul>
+  </div>
+
+  <div class="guidelines-box">
+    <h4 class="hidden-ta">📚 மேற்கோள் மற்றும் உசாத்துணை (References)</h4>
+    <h4 class="hidden-en">📚 References & Citations</h4>
+    <ul class="guidelines-list">
+      <li class="hidden-ta"><strong>மேற்கோள் சரியாக இருக்க வேண்டும்:</strong> ஆசிரியர் பெயர் மற்றும் வெளியீட்டு ஆண்டு சரியாக குறிப்பிடப்பட்டிருக்க வேண்டும்</li>
+      <li class="hidden-ta"><strong>குறைந்தது 7 உசாத்துணை:</strong> 7 நம்பகமான உசாத்துணை நூல்கள் அவசியம்</li>
+      <li class="hidden-ta"><strong>மேற்கோள் பாணி:</strong> Harvard அல்லது APA</li>
+      
+      <li class="hidden-en"><strong>Correct Citation:</strong> Author names and publication year must be accurate</li>
+      <li class="hidden-en"><strong>Minimum 7 References:</strong> At least 7 reliable sources required</li>
+      <li class="hidden-en"><strong>Citation Style:</strong> Harvard or APA format</li>
+    </ul>
+  </div>
+
+  <div class="guidelines-box">
+    <h4 class="hidden-ta">✅ உள்ளடக்க தெளிவுநிலை (Content Integrity)</h4>
+    <h4 class="hidden-en">✅ Content Integrity</h4>
+    <ul class="guidelines-list">
+      <li class="hidden-ta"><strong>அசல் ஆய்வு:</strong> ஆசிரியர்களின் சொந்த கருத்துகள் மற்றும் ஆய்வு முடிவு</li>
+      <li class="hidden-ta"><strong>பிளேஜியரிசம்:</strong> Zero tolerance - கருத்து திருட்டு இருப்பின் ஏற்கப்பட மாட்டாது</li>
+      <li class="hidden-ta"><strong>முதன்முறை வெளியீடு:</strong> வேறு எந்த இதழிலோ புத்தகத்திலோ இணையத்திலோ வெளியிடப்பட்டிருக்கக் கூடாது</li>
+      
+      <li class="hidden-en"><strong>Original Research:</strong> Author's own thoughts and research findings</li>
+      <li class="hidden-en"><strong>Zero Plagiarism:</strong> Strict policy - plagiarism will lead to rejection</li>
+      <li class="hidden-en"><strong>First Publication:</strong> Article must not be published elsewhere</li>
+    </ul>
+  </div>
+
+  <div class="guidelines-grid">
+    <div class="guidelines-box" style="margin-top:0;">
+      <h4 class="hidden-ta">📧 சமர்ப்பித்தல் (Submission)</h4>
+      <h4 class="hidden-en">📧 Submission</h4>
+      <ul class="guidelines-list">
+        <li class="hidden-ta">கட்டுரை: <strong>.docx</strong> வடிவ</li>
+        <li class="hidden-ta">ஆசிரியர் பெயர், பட்டப்பெயர், நிறுவனம்</li>
+        <li class="hidden-ta">5-7 keywords (தமிழ் + ஆங்கிலம்)</li>
+        <li class="hidden-ta">150+ வார்த்தை abstract</li>
+        
+        <li class="hidden-en">Format: <strong>.docx</strong></li>
+        <li class="hidden-en">Author name, credentials, institution</li>
+        <li class="hidden-en">5-7 keywords (Tamil + English)</li>
+        <li class="hidden-en">150+ words abstract</li>
+      </ul>
+    </div>
+
+    <div class="guidelines-box" style="margin-top:0;">
+      <h4 class="hidden-ta">⏳ மறுஆய்வு செயல்முறை (Review Process)</h4>
+      <h4 class="hidden-en">⏳ Review Process</h4>
+      <ul class="guidelines-list">
+        <li class="hidden-ta">ஆசிரியர் குழு மதிப்பாய்வு</li>
+        <li class="hidden-ta">4-6 வாரங்கள் timeline</li>
+        <li class="hidden-ta">ஏற்கப்பட்ட கட்டுரைகள் அடுத்த இதழ</li>
+        <li class="hidden-ta">ஆய்வுச் சான்றிதழ் வழங்கப்படும்</li>
+        
+        <li class="hidden-en">Editorial board review</li>
+        <li class="hidden-en">4-6 weeks timeline</li>
+        <li class="hidden-en">Accepted articles in next issue</li>
+        <li class="hidden-en">Certificate of publication provided</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:50px;">
+    <a href="#submit" class="submit-btn hidden-ta">📝 இப்போது சமர்ப்பிக்க</a>
+    <a href="#submit" class="submit-btn hidden-en">📝 Submit Now</a>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="section-tag hidden-ta">ஆசிரியர் குழு</span>
+    <span class="section-tag hidden-en">EDITORIAL BOARD</span>
+    <h2 class="hidden-ta">பதிப்பாசிரியர் குழு</h2>
+    <h2 class="hidden-en">Editorial Board</h2>
+  </div>
+
+  <div class="board-grid">
+    <div class="board-group">
+      <h3 class="hidden-ta">📌 முதன்மை பதிப்பாசிரியர் குழு</h3>
+      <h3 class="hidden-en">📌 Chief Editorial Board</h3>
+      
+      <div class="board-member">
+        <div class="member-name">முனைவர். இளையபிள்ளை | Dr. Illaiyappillai</div>
+        <div class="member-title hidden-ta">புல் முதன்மையர், தேர்வு கட்டுப்பாட்டு அலுவலர் | தஞ்சைக் தமிழ்ப் பல்கலைக்கழகம்</div>
+        <div class="member-title hidden-en">Full Professor, Examination Controller | Tanjore Tamil University</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">முனைவர். செ. பாலு | Dr. Se. Balu</div>
+        <div class="member-title hidden-ta">இணைப்பேராசிரியர், தமிழியல் துறை | அண்ணாமலைப் பல்கலைக்கழகம்</div>
+        <div class="member-title hidden-en">Associate Professor, Tamil Dept | Annamalai University</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">முனைவர். கு. கணபதிராமன் | Dr. Ku. Ganapathiraman</div>
+        <div class="member-title hidden-ta">இணைப்பேராசிரியர், தமிழியல் துறை | அண்ணாமலைப் பல்கலைக்கழகம்</div>
+        <div class="member-title hidden-en">Associate Professor, Tamil Dept | Annamalai University</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">முனைவர். பா. குப்புசாமி | Dr. Pa. Gupusami</div>
+        <div class="member-title hidden-ta">உதவிப்பேராசிரியர், தமிழியல் துறை | அண்ணாமலைப் பல்கலைக்கழகம்</div>
+        <div class="member-title hidden-en">Assistant Professor, Tamil Dept | Annamalai University</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">முனைவர். விஜயலட்சுமி | Dr. Vijayalakshmi</div>
+        <div class="member-title hidden-ta">புல் முதன்மையர் (பொறுப்பு), மொழிப்புலம் | தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</div>
+        <div class="member-title hidden-en">Full Professor (Rtd), Language Wing | Dhanalakshmi Srinivasan University, Trichy</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">முனைவர். கிருஷ்ணவேணி | Dr. Krishnaveni</div>
+        <div class="member-title hidden-ta">துறைத்தலைவர், ஆங்கிலத்துறை | தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</div>
+        <div class="member-title hidden-en">Head, English Dept | Dhanalakshmi Srinivasan University, Trichy</div>
+      </div>
+    </div>
+
+    <div class="board-group">
+      <h3 class="hidden-ta">👥 பதிப்பாசிரியர் குழு</h3>
+      <h3 class="hidden-en">👥 Editorial Team</h3>
+      
+      <div class="board-member">
+        <div class="member-name">முனைவர். அ. நடராசன் | Dr. A. Nadarasan</div>
+        <div class="member-title hidden-ta">உதவிப்பேராசிரியர், தமிழ்த்துறை | தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</div>
+        <div class="member-title hidden-en">Assistant Professor, Tamil Dept | Dhanalakshmi Srinivasan University, Trichy</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">முனைவர். தி. சபாபதி | Dr. Sabapathi</div>
+        <div class="member-title hidden-ta">கௌரவ விரிவுரையாளர் | அரசு கலைக்கல்லூரி, பி. முட்லூர்</div>
+        <div class="member-title hidden-en">Emeritus Lecturer | Government Arts College, P. Mudloor</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">செல்வி. சே. பிரதீபா | Selvi. Se. Pratheepa</div>
+        <div class="member-title hidden-ta">உதவிப்பேராசிரியர், ஆங்கிலத்துறை | தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</div>
+        <div class="member-title hidden-en">Assistant Professor, English Dept | Dhanalakshmi Srinivasan University, Trichy</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">திரு. ரா. பரத்குமார் | Ra. Bharathkumar</div>
+        <div class="member-title hidden-ta">தமிழ்த்துறை | தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</div>
+        <div class="member-title hidden-en">Tamil Dept | Dhanalakshmi Srinivasan University, Trichy</div>
+      </div>
+
+      <div class="board-member">
+        <div class="member-name">முனைவர். பாரதி சிவசங்கரி | Dr. Bharathi Sivasankari</div>
+        <div class="member-title hidden-ta">உதவிப்பேராசிரியர், தமிழ்த்துறை | தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</div>
+        <div class="member-title hidden-en">Assistant Professor, Tamil Dept | Dhanalakshmi Srinivasan University, Trichy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-banner">
+    <div class="banner-left">
+      <img src="logo-oual.png" alt="OUAL Trust Logo" class="banner-logo">
+    </div>
+    <div class="banner-right">
+      <img src="scholars.png" alt="Tamil Scholars" class="banner-scholars">
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div>
+      <h5 class="hidden-ta">ஆய்விதழ்</h5>
+      <h5 class="hidden-en">JOURNAL</h5>
+      <a href="#" class="hidden-ta">பற்றி</a>
+      <a href="#" class="hidden-en">About</a>
+      <a href="#" class="hidden-ta">வழிகாட்டுதல்கள்</a>
+      <a href="#" class="hidden-en">Guidelines</a>
+      <a href="#" class="hidden-ta">ஆசிரியர் குழு</a>
+      <a href="#" class="hidden-en">Editorial Board</a>
+    </div>
+    <div>
+      <h5 class="hidden-ta">தொடர்பு</h5>
+      <h5 class="hidden-en">CONTACT</h5>
+      <a href="mailto:moualtrust2020@gmail.com">📧 moualtrust2020@gmail.com</a>
+      <p>☎️ <strong>8825927692</strong></p>
+      <p class="hidden-ta">📍 திண்டிவனம், தமிழ்நாடு</p>
+      <p class="hidden-en">📍 Tindivanam, Tamil Nadu</p>
+    </div>
+    <div>
+      <h5 class="hidden-ta">விவரம்</h5>
+      <h5 class="hidden-en">INFO</h5>
+      <p class="hidden-ta">ISSN (Online): விண்ணப்பிக்கப்பட்டுள்ளது</p>
+      <p class="hidden-en">ISSN (Online): Applied</p>
+      <p class="hidden-ta">📅 வருடாந்திர வெளியீடு</p>
+      <p class="hidden-en">📅 Annual Publication</p>
+    </div>
+    <div>
+      <h5 class="hidden-ta">நிறுவனம்</h5>
+      <h5 class="hidden-en">ORGANIZATION</h5>
+      <p class="hidden-ta"><strong>மௌவல் அறக்கட்டளை</strong><br/>Reg. No. BKTV 9/2020</p>
+      <p class="hidden-en"><strong>Mauval Trust</strong><br/>Reg. No. BKTV 9/2020</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="hidden-ta">© 2026 மௌவல் ஓசை — பதிப்புரிமை பாதுகாக்கப்பட்டுள்ளது</p>
+    <p class="hidden-en">© 2026 Mauval Osai — All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+  // Set default language
+  document.documentElement.setAttribute('data-lang', 'ta');
+
+  function setLanguage(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    
+    // Update button states
+    document.getElementById('ta-btn').classList.toggle('active', lang === 'ta');
+    document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+    
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+  }
+
+  // Load saved language preference
+  window.addEventListener('load', function() {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'ta';
+    setLanguage(savedLang);
+  });
+</script>
+
+</body>
+</html>

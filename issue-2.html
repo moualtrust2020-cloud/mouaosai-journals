@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தற்போதைய இதழ் — மௌவல் ஓசை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800;900&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B2118; --leaf:#F2E8D5; --bark:#3A2E26;
+    --thread:#8B3A2A; --gold:#B8923F; --gold-soft:#D8B96A;
+    --line:rgba(43,33,24,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--leaf); color:var(--ink); font-family:'Noto Sans Tamil',sans-serif; line-height:1.7;}
+  a{color:inherit; text-decoration:none;}
+  nav{
+    position:sticky; top:0; z-index:50; background:rgba(242,232,213,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:18px 6vw;
+  }
+  .nav-brand{font-family:'Catamaran',sans-serif; font-weight:800; font-size:1.25rem; color:var(--bark);}
+  .nav-brand span{color:var(--thread);}
+  .nav-links{display:flex; gap:32px; font-size:0.95rem; font-weight:500;}
+  .nav-links a:hover{color:var(--thread);}
+
+  .page-head{padding:70px 6vw 30px; max-width:900px; margin:0 auto; text-align:center;}
+  .tag{font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+  .page-head h1{font-family:'Catamaran',sans-serif; font-weight:900; font-size:clamp(2rem,4.5vw,3rem); color:var(--bark); margin:14px 0;}
+  .page-head p{color:#574737; max-width:640px; margin:0 auto;}
+
+  main{max-width:840px; margin:0 auto; padding:30px 6vw 90px;}
+
+  .toc-card{
+    background:rgba(255,255,255,0.45); border:1px solid var(--line); border-radius:10px; padding:20px 28px;
+    margin-bottom:50px;
+  }
+  .toc-card h3{font-family:'Catamaran',sans-serif; color:var(--thread); font-size:1rem; margin-bottom:12px;}
+  .toc-card a{display:block; padding:8px 0; border-bottom:1px solid var(--line); font-size:0.95rem;}
+  .toc-card a:last-child{border-bottom:none;}
+  .toc-card a:hover{color:var(--thread);}
+
+  .article{
+    padding:36px 0; border-bottom:1px dashed var(--line);
+  }
+  .article:last-child{border-bottom:none;}
+  .article .meta{font-size:0.82rem; color:var(--gold); font-weight:600; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:10px;}
+  .article h2{font-family:'Catamaran',sans-serif; font-weight:700; font-size:1.4rem; color:var(--bark); margin-bottom:8px;}
+  .article .author{font-size:0.92rem; color:var(--thread); font-weight:600; margin-bottom:14px;}
+  .article p{color:#4a3c2e; font-size:0.98rem;}
+  .placeholder-note{
+    margin-top:14px; font-size:0.85rem; color:#8a7a63; font-style:italic;
+    border-left:3px solid var(--gold); padding-left:14px;
+  }
+
+  footer{background:var(--bark); color:rgba(242,232,213,0.7); padding:36px 6vw; text-align:center; font-size:0.85rem;}
+  footer a{color:var(--gold-soft);}
+  @media (max-width:860px){.nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">மௌவல் <span>ஓசை</span></div>
+  <div class="nav-links">
+    <a href="index.html#about">அறக்கட்டளை</a>
+    <a href="index.html#journal">இதழ் பற்றி</a>
+    <a href="issue.html">தற்போதைய இதழ்</a>
+    <a href="archives.html">முந்தைய தொகுதிகள்</a>
+    <a href="index.html#contact">தொடர்பு</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <span class="tag">தொகுதி 01 · 2026</span>
+  <h1>தற்போதைய இதழ்</h1>
+  <p>இந்த இதழின் கட்டுரைகள் தொகுக்கப்பட்டு வருகின்றன. கட்டுரைகள் இறுதியானதும், அவற்றின் முழு உரையும் இங்கு இடம்பெறும்.</p>
+</header>
+
+<main>
+  <div class="toc-card">
+    <h3>இதழடக்கம் (Table of Contents)</h3>
+    <a href="#a1">01. கட்டுரை தலைப்பு — இங்கே வரும்</a>
+    <a href="#a2">02. கட்டுரை தலைப்பு — இங்கே வரும்</a>
+    <a href="#a3">03. கட்டுரை தலைப்பு — இங்கே வரும்</a>
+    <a href="#a4">04. கட்டுரை தலைப்பு — இங்கே வரும்</a>
+    <a href="#a5">05. கட்டுரை தலைப்பு — இங்கே வரும்</a>
+  </div>
+
+  <article class="article" id="a1">
+    <div class="meta">ஆய்வுக் கட்டுரை</div>
+    <h2>கட்டுரை தலைப்பு இங்கே சேர்க்கப்படும்</h2>
+    <div class="author">ஆசிரியர் பெயர் · இணைப்பு நிறுவனம்</div>
+    <p>கட்டுரையின் சுருக்கம் (Abstract) இங்கே இடம்பெறும். ஒவ்வொரு கட்டுரையும் தலைப்பு, ஆசிரியர் விவரம், சுருக்கம் மற்றும் முழு உரைக்கான இணைப்பு (PDF) உடன் இங்கு வெளியிடப்படும்.</p>
+    <p class="placeholder-note">இடம் ஒதுக்கப்பட்டுள்ளது — கட்டுரை இறுதி செய்யப்பட்டதும் இங்கு புதுப்பிக்கப்படும்.</p>
+  </article>
+
+  <article class="article" id="a2">
+    <div class="meta">ஆய்வுக் கட்டுரை</div>
+    <h2>கட்டுரை தலைப்பு இங்கே சேர்க்கப்படும்</h2>
+    <div class="author">ஆசிரியர் பெயர் · இணைப்பு நிறுவனம்</div>
+    <p>கட்டுரையின் சுருக்கம் இங்கே இடம்பெறும்.</p>
+    <p class="placeholder-note">இடம் ஒதுக்கப்பட்டுள்ளது.</p>
+  </article>
+
+  <article class="article" id="a3">
+    <div class="meta">ஆய்வுக் கட்டுரை</div>
+    <h2>கட்டுரை தலைப்பு இங்கே சேர்க்கப்படும்</h2>
+    <div class="author">ஆசிரியர் பெயர் · இணைப்பு நிறுவனம்</div>
+    <p>கட்டுரையின் சுருக்கம் இங்கே இடம்பெறும்.</p>
+    <p class="placeholder-note">இடம் ஒதுக்கப்பட்டுள்ளது.</p>
+  </article>
+
+  <article class="article" id="a4">
+    <div class="meta">ஆய்வுக் கட்டுரை</div>
+    <h2>கட்டுரை தலைப்பு இங்கே சேர்க்கப்படும்</h2>
+    <div class="author">ஆசிரியர் பெயர் · இணைப்பு நிறுவனம்</div>
+    <p>கட்டுரையின் சுருக்கம் இங்கே இடம்பெறும்.</p>
+    <p class="placeholder-note">இடம் ஒதுக்கப்பட்டுள்ளது.</p>
+  </article>
+
+  <article class="article" id="a5">
+    <div class="meta">ஆய்வுக் கட்டுரை</div>
+    <h2>கட்டுரை தலைப்பு இங்கே சேர்க்கப்படும்</h2>
+    <div class="author">ஆசிரியர் பெயர் · இணைப்பு நிறுவனம்</div>
+    <p>கட்டுரையின் சுருக்கம் இங்கே இடம்பெறும்.</p>
+    <p class="placeholder-note">இடம் ஒதுக்கப்பட்டுள்ளது — குறைந்தது 5 கட்டுரைகள் ISSN விண்ணப்பத்திற்கு தேவை.</p>
+  </article>
+</main>
+
+<footer>
+  © 2026 மௌவல் அறக்கட்டளை · <a href="index.html">முகப்புப் பக்கம்</a>
+</footer>
+
+</body>
+</html>
