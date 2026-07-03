@@ -1,2 +1,2 @@
-# mouaosai-journals
+# moualosai-journals
 MOUAL OSAI INTERNATIONAL TAMIL AND ENGLISH LITERATURE AND LINGUSTICS 
