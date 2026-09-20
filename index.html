@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOUAL OSAI LITERATURE AND LINGUISTICS INTERNATIONAL JOURNAL</title>
 
-    <!-- Google Tamil Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Mukta Malar for Tamil & Inter for English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Mukta+Malar:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -15,7 +15,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Mukta Malar', sans-serif;
+            font-family: 'Mukta Malar', 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -24,6 +24,10 @@
             color: #333;
             line-height: 1.6;
         }
+
+        /* Language Toggle Display Rules */
+        body.lang-ta .en { display: none !important; }
+        body.lang-en .ta { display: none !important; }
 
         /* 1. Header Navigation */
         header {
@@ -62,10 +66,16 @@
             color: #ffffff;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         nav a {
             color: #ffffff;
             text-decoration: none;
-            margin-left: 15px;
             font-weight: 600;
             font-size: 0.92rem;
             transition: color 0.3s;
@@ -73,6 +83,27 @@
 
         nav a:hover {
             color: #ffb703;
+        }
+
+        .lang-btn {
+            background-color: #ffb703;
+            color: #800000;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            margin-left: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lang-btn:hover {
+            background-color: #ffffff;
+            color: #800000;
         }
 
         /* 2. Banner Section */
@@ -431,46 +462,72 @@
 
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 10px; }
-            nav a { margin: 0 6px; font-size: 0.85rem; }
+            nav a { margin: 0 4px; font-size: 0.85rem; }
             .hero-banner { min-height: 350px; }
             .journal-title { font-size: 1.8rem; }
             .founder-card { text-align: center; justify-content: center; }
         }
     </style>
 </head>
-<body>
+<body class="lang-ta">
 
-    <!-- 1. மேல்பகுதி நாவிகேஷன் -->
+    <!-- 1. மேல்பகுதி நாவிகேஷன் (Header) -->
     <header>
         <a href="#" class="logo-container">
-            <img src="logo-oual.png" alt="மௌவல் ஓசை லோகோ" class="header-logo">
-            <span class="logo-text">மௌவல் ஓசை</span>
+            <img src="logo-oual.png" alt="Logo" class="header-logo">
+            <span class="logo-text">
+                <span class="ta">மௌவல் ஓசை</span>
+                <span class="en">MOUAL OSAI</span>
+            </span>
         </a>
         <nav>
-            <a href="#">முகப்பு</a>
-            <a href="#about">பற்றி</a>
-            <a href="#guidelines">வழிகாட்டல்கள்</a>
-            <a href="#submit-form">கட்டுரை சமர்ப்பிக்க</a>
-            <a href="#founder">நிறுவனர்</a>
-            <a href="#editorial">ஆசிரியர் குழு</a>
-            <a href="archives.html">முந்தைய தொகுதிகள்</a>
-            <a href="issue.html">தற்போதைய இதழ்</a>
-            <a href="#contact">தொடர்பு</a>
+            <a href="#"><span class="ta">முகப்பு</span><span class="en">Home</span></a>
+            <a href="#about"><span class="ta">பற்றி</span><span class="en">About</span></a>
+            <a href="#guidelines"><span class="ta">வழிகாட்டல்கள்</span><span class="en">Guidelines</span></a>
+            <a href="#submit-form"><span class="ta">கட்டுரை சமர்ப்பிக்க</span><span class="en">Submit Paper</span></a>
+            <a href="#founder"><span class="ta">நிறுவனர்</span><span class="en">Founder</span></a>
+            <a href="#editorial"><span class="ta">ஆசிரியர் குழு</span><span class="en">Editorial Board</span></a>
+            <a href="archives.html"><span class="ta">முந்தைய தொகுதிகள்</span><span class="en">Archives</span></a>
+            <a href="issue.html"><span class="ta">தற்போதைய இதழ்</span><span class="en">Current Issue</span></a>
+            <a href="#contact"><span class="ta">தொடர்பு</span><span class="en">Contact</span></a>
+            
+            <!-- மொழி மாற்றி பொத்தான் -->
+            <button id="lang-btn" class="lang-btn" onclick="toggleLanguage()">
+                <i class="fas fa-globe"></i> English
+            </button>
         </nav>
     </header>
 
-    <!-- 2. முகப்பு பேனர் பகுதி -->
+    <!-- 2. முகப்பு பேனர் (Hero Banner) -->
     <section class="hero-banner">
         <div>
-            <img src="logo-oual.png" alt="QUAL Trust Logo" class="trust-logo">
-            <h1 class="journal-title">மௌவல் ஓசை</h1>
-            <p class="journal-subtitle">இலக்கிய, மொழியியல் பன்னாட்டு ஆய்விதழ் (தமிழ் & ஆங்கிலம்)</p>
-            <p class="trust-name">மௌவல் அறக்கட்டளை (Reg. No. BKTV 9/2020) வெளியிடும் காலாண்டு பருவ ஆய்விதழ்</p>
+            <img src="logo-oual.png" alt="Trust Logo" class="trust-logo">
+            <h1 class="journal-title">
+                <span class="ta">மௌவல் ஓசை</span>
+                <span class="en">MOUAL OSAI</span>
+            </h1>
+            <p class="journal-subtitle">
+                <span class="ta">இலக்கிய, மொழியியல் பன்னாட்டு ஆய்விதழ் (தமிழ் & ஆங்கிலம்)</span>
+                <span class="en">International Journal of Literature and Linguistics (Tamil & English)</span>
+            </p>
+            <p class="trust-name">
+                <span class="ta">மௌவல் அறக்கட்டளை (Reg. No. BKTV 9/2020) வெளியிடும் காலாண்டு பருவ ஆய்விதழ்</span>
+                <span class="en">A Quarterly International Journal Published by Moual Trust (Reg. No. BKTV 9/2020)</span>
+            </p>
             
             <div class="btn-group">
-                <a href="#submit-form" class="btn btn-primary"><i class="fas fa-paper-plane"></i> கட்டுரை சமர்ப்பிக்க</a>
-                <a href="issue.html" class="btn btn-secondary"><i class="fas fa-book-open"></i> தற்போதைய இதழ்</a>
-                <a href="archives.html" class="btn btn-secondary"><i class="fas fa-archive"></i> முந்தைய தொகுதிகள்</a>
+                <a href="#submit-form" class="btn btn-primary">
+                    <span class="ta"><i class="fas fa-paper-plane"></i> கட்டுரை சமர்ப்பிக்க</span>
+                    <span class="en"><i class="fas fa-paper-plane"></i> Submit Paper</span>
+                </a>
+                <a href="issue.html" class="btn btn-secondary">
+                    <span class="ta"><i class="fas fa-book-open"></i> தற்போதைய இதழ்</span>
+                    <span class="en"><i class="fas fa-book-open"></i> Current Issue</span>
+                </a>
+                <a href="archives.html" class="btn btn-secondary">
+                    <span class="ta"><i class="fas fa-archive"></i> முந்தைய தொகுதிகள்</span>
+                    <span class="en"><i class="fas fa-archive"></i> Archives</span>
+                </a>
             </div>
         </div>
     </section>
@@ -478,35 +535,58 @@
     <div class="container">
 
         <!-- 3. பற்றி (About Section) -->
-        <h2 class="section-title" id="about">பற்றி ABOUT</h2>
+        <h2 class="section-title" id="about">
+            <span class="ta">பற்றி</span>
+            <span class="en">ABOUT</span>
+        </h2>
         <div class="about-box">
-            <p><strong>மௌவல் அறக்கட்டளை:</strong> திண்டிவனத்தில் நிறுவப்பட்ட மௌவல் அறக்கட்டளையின் (Reg. No. BKTV 9/2020) இலக்கிய மேம்பாடு மற்றும் சமூக பணிப்பாரம்பரியத்தின் நீட்சியாகவே <strong>"மௌவல் ஓசை இலக்கிய மொழியியல் பன்னாட்டு ஆய்விதழ்"</strong> உருவாக்கப்பட்டுள்ளது.</p>
+            <p>
+                <span class="ta"><strong>மௌவல் அறக்கட்டளை:</strong> திண்டிவனத்தில் நிறுவப்பட்ட மௌவல் அறக்கட்டளையின் (Reg. No. BKTV 9/2020) இலக்கிய மேம்பாடு மற்றும் சமூக பணிப்பாரம்பரியத்தின் நீட்சியாகவே <strong>"மௌவல் ஓசை இலக்கிய மொழியியல் பன்னாட்டு ஆய்விதழ்"</strong> உருவாக்கப்பட்டுள்ளது.</span>
+                <span class="en"><strong>Moual Trust:</strong> Established in Tindivanam (Reg. No. BKTV 9/2020), Moual Trust has launched the <strong>"Moual Osai International Journal of Literature and Linguistics"</strong> as an extension of its literary development and social service tradition.</span>
+            </p>
             <ul class="about-list">
-                <li><strong>2020 - மௌவல் அறக்கட்டளை:</strong> கொரோனா காலத்தில் உணவுப் பொருட்கள் வழங்கி களம் கண்டது. இலக்கிய நிகழ்வுகள் நடத்தி 200 கவிஞர்களுக்கு விருதுகளும், 2 புத்தகங்களும் வெளியிட்டுள்ளது. மேலும், மீன்வளத்துறை பயிற்சிகள் மூலம் 50 குடும்பங்கள் பயன்பெற உதவியுள்ளது.</li>
-                <li><strong>2026 - பன்னாட்டு ஆய்விதழ்:</strong> உலகம் முழுவதிலும் உள்ள ஆய்வாளர்களின் ஆய்வுக்கட்டுரைகளை ISSN தரத்துடன் காலாண்டு இதழாக வெளியிடும் உயர்ந்த பணியைத் துவங்கியுள்ளது.</li>
+                <li>
+                    <span class="ta"><strong>2020 - மௌவல் அறக்கட்டளை:</strong> கொரோனா காலத்தில் உணவுப் பொருட்கள் வழங்கி களம் கண்டது. இலக்கிய நிகழ்வுகள் நடத்தி 200 கவிஞர்களுக்கு விருதுகளும், 2 புத்தகங்களும் வெளியிட்டுள்ளது. மேலும், மீன்வளத்துறை பயிற்சிகள் மூலம் 50 குடும்பங்கள் பயன்பெற உதவியுள்ளது.</span>
+                    <span class="en"><strong>2020 - Moual Trust:</strong> Provided relief materials during COVID-19, hosted literary meets awarding 200 poets, published 2 books, and empowered 50 families through fisheries training programs.</span>
+                </li>
+                <li>
+                    <span class="ta"><strong>2026 - பன்னாட்டு ஆய்விதழ்:</strong> உலகம் முழுவதிலும் உள்ள ஆய்வாளர்களின் ஆய்வுக்கட்டுரைகளை ISSN தரத்துடன் காலாண்டு இதழாக வெளியிடும் உயர்ந்த பணியைத் துவங்கியுள்ளது.</span>
+                    <span class="en"><strong>2026 - International Journal:</strong> Initiated a quarterly peer-reviewed publication with ISSN standards to publish research papers from scholars worldwide.</span>
+                </li>
             </ul>
         </div>
 
         <!-- 4. ஆய்வு வழிகாட்டுதல் (Guidelines) -->
-        <h2 class="section-title" id="guidelines">ஆய்வு வழிகாட்டுதல் GUIDELINES</h2>
+        <h2 class="section-title" id="guidelines">
+            <span class="ta">ஆய்வு வழிகாட்டுதல்</span>
+            <span class="en">GUIDELINES</span>
+        </h2>
         <div class="guidelines-grid">
             <div class="guide-card">
-                <h3><i class="fas fa-file-alt"></i> கட்டுரையின் வடிவம் (Format)</h3>
+                <h3>
+                    <i class="fas fa-file-alt"></i> 
+                    <span class="ta">கட்டுரையின் வடிவம்</span>
+                    <span class="en">Paper Format</span>
+                </h3>
                 <ul>
-                    <li><strong>மொழி:</strong> தமிழ் மற்றும் ஆங்கிலம்</li>
-                    <li><strong>எழுத்துரு:</strong> தமிழ் - யுனிகோடு (Unicode) | ஆங்கிலம் - Times New Roman (12 புள்ளிகள்)</li>
-                    <li><strong>வரி இடைவெளி:</strong> 1.15 | <strong>நீளம்:</strong> 7 - 8 பக்கங்கள்</li>
-                    <li><strong>ஆசிரியர்கள்:</strong> 1 முதல் 5 வரை</li>
+                    <li><span class="ta"><strong>மொழி:</strong> தமிழ் மற்றும் ஆங்கிலம்</span><span class="en"><strong>Language:</strong> Tamil and English</span></li>
+                    <li><span class="ta"><strong>எழுத்துரு:</strong> தமிழ் - யுனிகோடு | ஆங்கிலம் - Times New Roman (12pt)</span><span class="en"><strong>Font:</strong> Tamil - Unicode | English - Times New Roman (12pt)</span></li>
+                    <li><span class="ta"><strong>வரி இடைவெளி:</strong> 1.15 | <strong>நீளம்:</strong> 7 - 8 பக்கங்கள்</span><span class="en"><strong>Line Spacing:</strong> 1.15 | <strong>Length:</strong> 7 - 8 Pages</span></li>
+                    <li><span class="ta"><strong>ஆசிரியர்கள்:</strong> 1 முதல் 5 வரை</span><span class="en"><strong>Authors:</strong> 1 to 5 members</span></li>
                 </ul>
             </div>
 
             <div class="guide-card">
-                <h3><i class="fas fa-bookmark"></i> உசாத்துணை & மதிப்பாய்வு</h3>
+                <h3>
+                    <i class="fas fa-bookmark"></i> 
+                    <span class="ta">உசாத்துணை & மதிப்பாய்வு</span>
+                    <span class="en">Reference & Review</span>
+                </h3>
                 <ul>
-                    <li><strong>மேற்கோள் பாணி:</strong> Harvard அல்லது APA முறைப்படி இருக்க வேண்டும்.</li>
-                    <li><strong>உசாத்துணை நூல்கள்:</strong> குறைந்தபட்சம் 7 நம்பகமான உசாத்துணைகள் அவசியம்.</li>
-                    <li><strong>கருத்துத் திருட்டு (Plagiarism):</strong> Zero tolerance. அசல் ஆய்வாக மட்டுமே இருக்க வேண்டும்.</li>
-                    <li><strong>மறுஆய்வு காலம்:</strong> 4 முதல் 6 வாரங்கள்.</li>
+                    <li><span class="ta"><strong>மேற்கோள் பாணி:</strong> Harvard அல்லது APA முறை</span><span class="en"><strong>Citation Style:</strong> Harvard or APA format</span></li>
+                    <li><span class="ta"><strong>உசாத்துணை நூல்கள்:</strong> குறைந்தபட்சம் 7 உசாத்துணைகள்</span><span class="en"><strong>References:</strong> Minimum 7 reliable references</span></li>
+                    <li><span class="ta"><strong>கருத்துத் திருட்டு:</strong> அசல் ஆய்வாக மட்டுமே இருக்க வேண்டும்.</span><span class="en"><strong>Plagiarism:</strong> Zero tolerance for copied content.</span></li>
+                    <li><span class="ta"><strong>மறுஆய்வு காலம்:</strong> 4 முதல் 6 வாரங்கள்</span><span class="en"><strong>Review Time:</strong> 4 to 6 weeks</span></li>
                 </ul>
             </div>
         </div>
@@ -514,58 +594,77 @@
         <!-- 5. கட்டுரை சமர்ப்பிப்புப் படிவம் (Formspree) -->
         <div class="submit-section" id="submit-form">
             <div style="text-align: center; margin-bottom: 25px;">
-                <span style="color: #800000; font-weight: bold; font-size: 0.9rem;">கட்டுரை சமர்ப்பிப்பு</span>
-                <h2 style="color: #222; font-size: 1.8rem; margin: 5px 0;">உங்கள் ஆய்வுக் கட்டுரையை அனுப்புங்கள்</h2>
-                <p style="color: #666; font-size: 0.95rem;">படிவத்தை நிரப்பி சமர்ப்பிக்கவும். ஆசிரியர் குழு 4-6 வாரங்களுக்குள் தொடர்பு கொள்ளும்.</p>
+                <span style="color: #800000; font-weight: bold; font-size: 0.9rem;">
+                    <span class="ta">கட்டுரை சமர்ப்பிப்பு</span>
+                    <span class="en">PAPER SUBMISSION</span>
+                </span>
+                <h2 style="color: #222; font-size: 1.8rem; margin: 5px 0;">
+                    <span class="ta">உங்கள் ஆய்வுக் கட்டுரையை அனுப்புங்கள்</span>
+                    <span class="en">Submit Your Research Paper</span>
+                </h2>
+                <p style="color: #666; font-size: 0.95rem;">
+                    <span class="ta">படிவத்தை நிரப்பி சமர்ப்பிக்கவும். ஆசிரியர் குழு 4-6 வாரங்களுக்குள் தொடர்பு கொள்ளும்.</span>
+                    <span class="en">Fill out the form to submit. The editorial team will contact you within 4-6 weeks.</span>
+                </p>
             </div>
 
             <form action="https://formspree.io/f/mbgldyek" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label>ஆசிரியர் பெயர் *</label>
-                        <input type="text" name="ஆசிரியர் பெயர்" required placeholder="உங்கள் முழு பெயர்">
+                        <label><span class="ta">ஆசிரியர் பெயர் *</span><span class="en">Author Name *</span></label>
+                        <input type="text" name="ஆசிரியர் பெயர் / Author Name" required placeholder="Name / பெயர்">
                     </div>
                     <div class="form-group">
-                        <label>நிறுவனம் / கல்லூரி</label>
-                        <input type="text" name="நிறுவனம் / கல்லூரி" placeholder="பல்கலைக்கழகம் / கல்லூரி">
+                        <label><span class="ta">நிறுவனம் / கல்லூரி</span><span class="en">Institution / College</span></label>
+                        <input type="text" name="நிறுவனம் / Institution" placeholder="University / College">
                     </div>
                 </div>
 
                 <div class="form-grid">
                     <div class="form-group">
-                        <label>மின்னஞ்சல் *</label>
-                        <input type="email" name="மின்னஞ்சல்" required placeholder="your@email.com">
+                        <label><span class="ta">மின்னஞ்சல் *</span><span class="en">Email Address *</span></label>
+                        <input type="email" name="மின்னஞ்சல் / Email" required placeholder="your@email.com">
                     </div>
                     <div class="form-group">
-                        <label>தொலைபேசி எண்</label>
-                        <input type="tel" name="தொலைபேசி எண்" placeholder="+91 XXXXX XXXXX">
+                        <label><span class="ta">தொலைபேசி எண்</span><span class="en">Phone Number</span></label>
+                        <input type="tel" name="தொலைபேசி / Phone" placeholder="+91 XXXXX XXXXX">
                     </div>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 18px;">
-                    <label>கட்டுரை தலைப்பு *</label>
-                    <input type="text" name="கட்டுரை தலைப்பு" required placeholder="உங்கள் கட்டுரையின் தலைப்பை தமிழில் எழுதவும்">
+                    <label><span class="ta">கட்டுரை தலைப்பு *</span><span class="en">Paper Title *</span></label>
+                    <input type="text" name="கட்டுரை தலைப்பு / Paper Title" required placeholder="Title of your research paper">
                 </div>
 
                 <div class="form-group" style="margin-bottom: 20px;">
-                    <label>சுருக்கம் (Abstract)</label>
-                    <textarea name="சுருக்கம் (Abstract)" rows="4" placeholder="கட்டுரையின் சுருக்கமான விளக்கம் (150 வார்த்தைகள் வரை)..."></textarea>
+                    <label><span class="ta">சுருக்கம் (Abstract)</span><span class="en">Abstract</span></label>
+                    <textarea name="சுருக்கம் / Abstract" rows="4" placeholder="Brief summary of paper (Up to 150 words)..."></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> கட்டுரை சமர்ப்பிக்க
+                    <span class="ta"><i class="fas fa-paper-plane"></i> கட்டுரை சமர்ப்பிக்க</span>
+                    <span class="en"><i class="fas fa-paper-plane"></i> Submit Paper</span>
                 </button>
             </form>
         </div>
 
         <!-- 6. நிறுவனர் (Founder) -->
-        <h2 class="section-title" id="founder">FOUNDER</h2>
+        <h2 class="section-title" id="founder">
+            <span class="ta">நிறுவனர்</span>
+            <span class="en">FOUNDER</span>
+        </h2>
         <div class="founder-card">
             <img src="founder.jpg" alt="Dr. Bharathi Sivasankari" class="founder-img">
             <div class="founder-info">
                 <h3>முனைவர். பாரதி சிவசங்கரி | Dr. Bharathi Sivasankari</h3>
-                <p class="role">நிறுவனர் & உதவிப்பேராசிரியர், தமிழ்த்துறை</p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
+                <p class="role">
+                    <span class="ta">நிறுவனர் & உதவிப்பேராசிரியர், தமிழ்த்துறை</span>
+                    <span class="en">Founder & Assistant Professor, Department of Tamil</span>
+                </p>
+                <p>
+                    <span class="ta">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</span>
+                    <span class="en">Dhanalakshmi Srinivasan University, Trichy</span>
+                </p>
                 <p><i class="fas fa-envelope"></i> drbharathisivasankari01@gmail.com</p>
                 <p><i class="fas fa-phone"></i> 8825927692</p>
                 <p><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=RJ4YdawAAAAJ&hl=en" target="_blank">Google Scholar Profile</a></p>
@@ -573,103 +672,118 @@
         </div>
 
         <!-- 7. ஆசிரியர் குழு (Editorial Board) -->
-        <h2 class="section-title" id="editorial">ஆசிரியர் குழு EDITORIAL BOARD</h2>
+        <h2 class="section-title" id="editorial">
+            <span class="ta">ஆசிரியர் குழு</span>
+            <span class="en">EDITORIAL BOARD</span>
+        </h2>
         
-        <h3 style="color: #800000; margin-bottom: 15px; border-bottom: 2px solid #ffb703; padding-bottom: 5px;">முதன்மை பதிப்பாசிரியர் குழு</h3>
+        <h3 style="color: #800000; margin-bottom: 15px; border-bottom: 2px solid #ffb703; padding-bottom: 5px;">
+            <span class="ta">முதன்மை பதிப்பாசிரியர் குழு</span>
+            <span class="en">Chief Advisory Board</span>
+        </h3>
         <div class="grid-container">
             <div class="editor-card">
                 <img src="ilaiyappillai.jpg" alt="Dr. Illaiyappillai" class="editor-img">
                 <h4>முனைவர். இளையபிள்ளை</h4>
-                <p><strong>புல முதன்மையர் & தேர்வுக் கட்டுப்பாட்டு அலுவலர்</strong></p>
-                <p>தஞ்சைத் தமிழ்ப் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">புல முதன்மையர் & தேர்வுக் கட்டுப்பாட்டு அலுவலர்</span><span class="en">Dean & Controller of Examinations</span></strong></p>
+                <p><span class="ta">தஞ்சைத் தமிழ்ப் பல்கலைக்கழகம்</span><span class="en">Tamil University, Thanjavur</span></p>
             </div>
 
             <div class="editor-card">
                 <img src="balu.jpg" alt="Dr. S. Balu" class="editor-img">
                 <h4>முனைவர். செ. பாலு</h4>
-                <p><strong>இணைப்பேராசிரியர், தமிழியல் துறை</strong></p>
-                <p>அண்ணாமலைப் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">இணைப்பேராசிரியர், தமிழியல் துறை</span><span class="en">Associate Professor of Tamil</span></strong></p>
+                <p><span class="ta">அண்ணாமலைப் பல்கலைக்கழகம்</span><span class="en">Annamalai University</span></p>
                 <a href="mailto:sellaebalu@gmail.com"><i class="fas fa-envelope"></i> sellaebalu@gmail.com</a>
             </div>
 
             <div class="editor-card">
                 <img src="logo-oual.png" alt="Dr. K. Ganapathiraman" class="editor-img">
                 <h4>முனைவர். கு. கணபதிராமன்</h4>
-                <p><strong>இணைப்பேராசிரியர், தமிழியல் துறை</strong></p>
-                <p>அண்ணாமலைப் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">இணைப்பேராசிரியர், தமிழியல் துறை</span><span class="en">Associate Professor of Tamil</span></strong></p>
+                <p><span class="ta">அண்ணாமலைப் பல்கலைக்கழகம்</span><span class="en">Annamalai University</span></p>
                 <a href="mailto:aviavinnash123@gmail.com"><i class="fas fa-envelope"></i> aviavinnash123@gmail.com</a>
             </div>
 
             <div class="editor-card">
                 <img src="kuppusamy.jpg" alt="Dr. P. Gupusami" class="editor-img">
                 <h4>முனைவர். பா. குப்புசாமி</h4>
-                <p><strong>உதவிப்பேராசிரியர், தமிழியல் துறை</strong></p>
-                <p>அண்ணாமலைப் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">உதவிப்பேராசிரியர், தமிழியல் துறை</span><span class="en">Assistant Professor of Tamil</span></strong></p>
+                <p><span class="ta">அண்ணாமலைப் பல்கலைக்கழகம்</span><span class="en">Annamalai University</span></p>
                 <a href="mailto:gingeesamy@gmail.com"><i class="fas fa-envelope"></i> gingeesamy@gmail.com</a>
             </div>
 
             <div class="editor-card">
                 <img src="logo-oual.png" alt="Dr. R. Vijayalakshmi" class="editor-img">
                 <h4>முனைவர். R. விஜயலட்சுமி</h4>
-                <p><strong>புல முதன்மையர் (பொறுப்பு), மொழிப்புலம்</strong></p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">புல முதன்மையர் (பொறுப்பு), மொழிப்புலம்</span><span class="en">Dean (i/c), School of Languages</span></strong></p>
+                <p><span class="ta">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</span><span class="en">Dhanalakshmi Srinivasan University</span></p>
             </div>
 
             <div class="editor-card">
                 <img src="logo-oual.png" alt="Dr. Krishnaveni" class="editor-img">
                 <h4>முனைவர். K. கிருஷ்ணவேணி</h4>
-                <p><strong>துறைத்தலைவர், ஆங்கிலத்துறை</strong></p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">துறைத்தலைவர், ஆங்கிலத்துறை</span><span class="en">Head, Dept of English</span></strong></p>
+                <p><span class="ta">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</span><span class="en">Dhanalakshmi Srinivasan University</span></p>
             </div>
         </div>
 
-        <h3 style="color: #800000; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #ffb703; padding-bottom: 5px;">பதிப்பாசிரியர் குழு</h3>
+        <h3 style="color: #800000; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #ffb703; padding-bottom: 5px;">
+            <span class="ta">பதிப்பாசிரியர் குழு</span>
+            <span class="en">Editorial Team</span>
+        </h3>
         <div class="grid-container">
             <div class="editor-card">
                 <img src="natarajan.jpg" alt="Dr. A. Nadarasan" class="editor-img">
                 <h4>முனைவர். அ. நடராசன்</h4>
-                <p><strong>உதவிப்பேராசிரியர், தமிழ்த்துறை</strong></p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">உதவிப்பேராசிரியர், தமிழ்த்துறை</span><span class="en">Assistant Professor of Tamil</span></strong></p>
+                <p><span class="ta">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</span><span class="en">Dhanalakshmi Srinivasan University</span></p>
                 <a href="mailto:natarajan.lingu@gmail.com"><i class="fas fa-envelope"></i> natarajan.lingu@gmail.com</a>
             </div>
 
             <div class="editor-card">
                 <img src="pradheepa.jpg" alt="Selvi. S. Pradheepa" class="editor-img">
                 <h4>செல்வி. சே. பிரதீபா</h4>
-                <p><strong>உதவிப்பேராசிரியர், ஆங்கிலத்துறை</strong></p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">உதவிப்பேராசிரியர், ஆங்கிலத்துறை</span><span class="en">Assistant Professor of English</span></strong></p>
+                <p><span class="ta">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</span><span class="en">Dhanalakshmi Srinivasan University</span></p>
                 <a href="mailto:pradheepa0120@gmail.com"><i class="fas fa-envelope"></i> pradheepa0120@gmail.com</a>
             </div>
 
             <div class="editor-card">
                 <img src="bharathkumar.jpg" alt="Ra. Bharathkumar" class="editor-img">
                 <h4>திரு. ரா. பரத்குமார்</h4>
-                <p><strong>தமிழ்த்துறை</strong></p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">தமிழ்த்துறை</span><span class="en">Department of Tamil</span></strong></p>
+                <p><span class="ta">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</span><span class="en">Dhanalakshmi Srinivasan University</span></p>
                 <a href="mailto:drtamilbarath@gmail.com"><i class="fas fa-envelope"></i> drtamilbarath@gmail.com</a>
             </div>
 
             <div class="editor-card">
                 <img src="founder.jpg" alt="Dr. Bharathi Sivasankari" class="editor-img">
                 <h4>முனைவர். பாரதி சிவசங்கரி</h4>
-                <p><strong>உதவிப்பேராசிரியர், தமிழ்த்துறை</strong></p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</p>
+                <p><strong><span class="ta">உதவிப்பேராசிரியர், தமிழ்த்துறை</span><span class="en">Assistant Professor of Tamil</span></strong></p>
+                <p><span class="ta">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம்</span><span class="en">Dhanalakshmi Srinivasan University</span></p>
                 <a href="mailto:drbharathisivasankari01@gmail.com"><i class="fas fa-envelope"></i> drbharathisivasankari01@gmail.com</a>
             </div>
         </div>
 
         <!-- 8. தொடர்பு (Contact Section) -->
-        <h2 class="section-title" id="contact">தொடர்பு CONTACT</h2>
+        <h2 class="section-title" id="contact">
+            <span class="ta">தொடர்பு</span>
+            <span class="en">CONTACT</span>
+        </h2>
         <div class="contact-grid">
             <div class="contact-card">
-                <h3>தொடர்பு விவரங்கள்</h3>
+                <h3>
+                    <span class="ta">தொடர்பு விவரங்கள்</span>
+                    <span class="en">Contact Info</span>
+                </h3>
                 <div class="contact-item">
                     <i class="fas fa-building"></i>
-                    <p><strong>மௌவல் அறக்கட்டளை</strong><br>Reg. No. BKTV 9/2020</p>
+                    <p><strong><span class="ta">மௌவல் அறக்கட்டளை</span><span class="en">Moual Trust</span></strong><br>Reg. No. BKTV 9/2020</p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>திண்டிவனம், தமிழ்நாடு</p>
+                    <p><span class="ta">திண்டிவனம், தமிழ்நாடு</span><span class="en">Tindivanam, Tamil Nadu, India</span></p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -677,23 +791,26 @@
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <p>8825927692</p>
+                    <p>+91 8825927692</p>
                 </div>
             </div>
 
             <div class="contact-card">
-                <h3>இதழ் விவரம்</h3>
+                <h3>
+                    <span class="ta">இதழ் விவரம்</span>
+                    <span class="en">Journal Details</span>
+                </h3>
                 <div class="contact-item">
                     <i class="fas fa-barcode"></i>
-                    <p><strong>ISSN (Online):</strong> விண்ணப்பிக்கப்பட்டுள்ளது</p>
+                    <p><strong>ISSN (Online):</strong> <span class="ta">விண்ணப்பிக்கப்பட்டுள்ளது</span><span class="en">Applied</span></p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-calendar-alt"></i>
-                    <p><strong>வெளியீடு:</strong> காலாண்டு பருவ வெளியீடு</p>
+                    <p><strong><span class="ta">வெளியீடு:</span><span class="en">Frequency:</span></strong> <span class="ta">காலாண்டு பருவ வெளியீடு</span><span class="en">Quarterly Journal</span></p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-file-upload"></i>
-                    <p><strong>சமர்ப்பிப்பு கோப்பு:</strong> .docx வடிவில், 150+ வார்த்தை Abstract மற்றும் Keywords உடன் அனுப்பவும்.</p>
+                    <p><span class="ta">.docx வடிவில், 150+ வார்த்தை Abstract மற்றும் Keywords உடன் அனுப்பவும்.</span><span class="en">Submit in .docx format with 150+ words Abstract and Keywords.</span></p>
                 </div>
             </div>
         </div>
@@ -702,9 +819,27 @@
 
     <!-- 9. Footer -->
     <footer>
-        <p>&copy; 2026 <strong>மௌவல் ஓசை</strong> - இலக்கிய, மொழியியல் பன்னாட்டு ஆய்விதழ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
-        <p>நிறுவனம்: மௌவல் அறக்கட்டளை (Reg. No. BKTV 9/2020)</p>
+        <p>&copy; 2026 <strong><span class="ta">மௌவல் ஓசை</span><span class="en">MOUAL OSAI</span></strong> - <span class="ta">இலக்கிய, மொழியியல் பன்னாட்டு ஆய்விதழ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span><span class="en">International Journal of Literature and Linguistics. All Rights Reserved.</span></p>
+        <p><span class="ta">நிறுவனம்: மௌவல் அறக்கட்டளை (Reg. No. BKTV 9/2020)</span><span class="en">Published by Moual Trust (Reg. No. BKTV 9/2020)</span></p>
     </footer>
+
+    <!-- JavaScript to Switch Languages -->
+    <script>
+    function toggleLanguage() {
+        const body = document.body;
+        const btn = document.getElementById('lang-btn');
+
+        if (body.classList.contains('lang-ta')) {
+            body.classList.remove('lang-ta');
+            body.classList.add('lang-en');
+            btn.innerHTML = '<i class="fas fa-globe"></i> தமிழ்';
+        } else {
+            body.classList.remove('lang-en');
+            body.classList.add('lang-ta');
+            btn.innerHTML = '<i class="fas fa-globe"></i> English';
+        }
+    }
+    </script>
 
 </body>
 </html>
