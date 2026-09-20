@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>மௌவல் ஓசை - தமிழ் , ஆங்கில மற்றும் மொழியியல் பன்னாட்டு ஆய்விதழ்</title>
+    <title>மௌவல் ஓசை - இலக்கிய, மொழியியல் பன்னாட்டு ஆய்விதழ்</title>
 
     <!-- Google Tamil Font -->
     <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
             line-height: 1.6;
         }
 
-        /* 1. Navigation Header */
+        /* Header Navigation */
         header {
             background-color: #800000;
             color: #ffffff;
@@ -39,23 +39,33 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+        }
+
         .logo-text {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #ffffff;
             text-decoration: none;
         }
 
-        .logo-text span {
-            color: #ffb703;
-        }
-
         nav a {
             color: #ffffff;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 15px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
@@ -63,554 +73,257 @@
             color: #ffb703;
         }
 
-        /* 2. Hero Banner Section */
+        /* Hero Banner Section */
         .hero-banner {
-            background: url('images/banner.png') center/cover no-repeat;
-            min-height: 480px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .banner-overlay {
-            background: rgba(0, 0, 0, 0.6);
-            width: 100%;
-            height: 100%;
-            padding: 60px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                        url('images/banner.jpg') center/cover no-repeat;
+            min-height: 420px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-        }
-
-        .banner-content {
-            max-width: 850px;
+            padding: 40px 20px;
             color: #ffffff;
         }
 
         .trust-logo {
-            width: 120px;
-            height: auto;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
             margin-bottom: 15px;
             background: #ffffff;
-            padding: 8px;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            padding: 4px;
+            object-fit: cover;
         }
 
         .journal-title {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: #ffb703;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
             margin-bottom: 5px;
         }
 
         .journal-subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.3rem;
             margin-bottom: 8px;
-            letter-spacing: 0.5px;
         }
 
         .trust-name {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #f0f0f0;
-            margin-bottom: 25px;
-            font-weight: 500;
+            margin-bottom: 20px;
         }
 
         .submit-btn {
             display: inline-block;
             background-color: #800000;
             color: #ffffff;
-            padding: 14px 32px;
-            font-size: 1.15rem;
+            padding: 12px 28px;
+            font-size: 1rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 30px;
             border: 2px solid #ffb703;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: all 0.3s ease;
         }
 
         .submit-btn:hover {
             background-color: #ffb703;
             color: #800000;
-            transform: translateY(-3px);
-        }
-
-        /* 3. Journal Info Highlights */
-        .highlights {
-            background: #ffffff;
-            padding: 30px 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-        }
-
-        .highlights-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .highlight-item {
-            padding: 15px;
-            border-right: 1px solid #eee;
-        }
-
-        .highlight-item:last-child {
-            border-right: none;
-        }
-
-        .highlight-item i {
-            font-size: 2rem;
-            color: #800000;
-            margin-bottom: 10px;
-        }
-
-        .highlight-item h4 {
-            color: #333;
-            font-size: 1.1rem;
         }
 
         /* Container Layout */
         .container {
             width: 90%;
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
+            max-width: 1100px;
+            margin: 40px auto;
         }
 
-        /* Section Headings */
         .section-title {
             text-align: center;
             color: #800000;
-            font-size: 2.2rem;
-            margin: 40px 0 30px 0;
+            font-size: 2rem;
+            margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .section-title::after {
             content: '';
-            width: 80px;
-            height: 4px;
+            width: 60px;
+            height: 3px;
             background-color: #ffb703;
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 2px;
         }
 
-        /* 4. Founder Card */
+        /* About Section */
+        .about-box {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Founder Section */
         .founder-card {
             background: #ffffff;
-            border-top: 6px solid #800000;
-            border-radius: 12px;
-            padding: 35px;
+            border-top: 5px solid #800000;
+            border-radius: 10px;
+            padding: 30px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 35px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            margin-bottom: 50px;
+            gap: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            margin-bottom: 40px;
         }
 
         .founder-img {
-            width: 210px;
-            height: 210px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #800000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .founder-info {
-            flex: 1;
-            min-width: 280px;
+            border: 3px solid #800000;
         }
 
         .founder-info h3 {
             color: #800000;
-            font-size: 1.9rem;
-            margin-bottom: 5px;
+            font-size: 1.6rem;
         }
 
-        .founder-info .role-badge {
-            display: inline-block;
-            background: #ffe6e6;
-            color: #800000;
-            padding: 4px 14px;
-            border-radius: 20px;
+        .founder-info .role {
             font-weight: 700;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .founder-info p {
-            font-size: 1.05rem;
             color: #555;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .social-links {
-            margin-top: 20px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #ffffff;
-            transition: opacity 0.3s;
-        }
-
-        .social-btn:hover { opacity: 0.88; }
-        .btn-email { background-color: #d93025; }
-        .btn-scholar { background-color: #4285f4; }
-        .btn-phone { background-color: #25d366; }
-        .btn-linkedin { background-color: #0a66c2; }
-
-        /* 5. Editorial Cards Grid */
-        .grid-container {
+        /* Contact Section */
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-bottom: 40px;
         }
 
-        .editor-card {
+        .contact-card {
             background: #ffffff;
+            padding: 25px;
             border-radius: 10px;
-            padding: 25px 20px;
-            text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #eef0f3;
         }
 
-        .editor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .editor-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
+        .contact-card h3 {
+            color: #800000;
             margin-bottom: 15px;
-            border: 3px solid #f0f0f0;
+            border-bottom: 2px solid #ffb703;
+            padding-bottom: 5px;
         }
 
-        .editor-card h4 {
-            color: #800000;
-            font-size: 1.25rem;
-            margin-bottom: 6px;
-        }
-
-        .editor-card .designation {
-            font-weight: 600;
-            color: #333;
-            font-size: 0.98rem;
-        }
-
-        .editor-card .dept {
-            color: #666;
-            font-size: 0.92rem;
-        }
-
-        .editor-card .univ {
-            color: #777;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-
-        .editor-card .email-link {
-            display: inline-block;
-            color: #800000;
-            text-decoration: none;
-            font-size: 0.9rem;
-            word-break: break-all;
-            margin-top: 5px;
-        }
-
-        .editor-card .email-link:hover { text-decoration: underline; }
-
-        /* 6. Call for Papers / Guidelines Box */
-        .submit-section {
-            background: #ffffff;
-            border-left: 6px solid #ffb703;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-top: 50px;
-        }
-
-        .submit-section h3 {
-            color: #800000;
-            font-size: 1.8rem;
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
             margin-bottom: 15px;
         }
 
-        .submit-section ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            color: #444;
+        .contact-item i {
+            color: #800000;
+            margin-top: 4px;
         }
 
-        .submit-section li {
-            margin-bottom: 8px;
-        }
-
-        /* 7. Footer */
         footer {
             background-color: #111111;
             color: #aaaaaa;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-            font-size: 0.95rem;
-            border-top: 3px solid #800000;
-        }
-
-        footer p { margin-bottom: 8px; }
-        footer a { color: #ffb703; text-decoration: none; }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 10px;
-            }
-            nav a {
-                margin: 0 10px;
-                font-size: 0.9rem;
-            }
-            .journal-title { font-size: 2.2rem; }
-            .journal-subtitle { font-size: 1.1rem; }
-            .trust-logo { width: 90px; }
-            .founder-card { text-align: center; justify-content: center; }
-            .social-links { justify-content: center; }
-            .highlight-item { border-right: none; border-bottom: 1px solid #eee; }
+            padding: 25px 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. மேல்பகுதி நாவிகேஷன் -->
+    <!-- மேல்பகுதி நாவிகேஷன் -->
     <header>
-        <a href="#" class="logo-text">மௌவல் <span>ஓசை</span></a>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="QUAL Trust Logo" class="header-logo" onerror="this.src='https://via.placeholder.com/45?text=OUAL'">
+            <a href="#" class="logo-text">மௌவல் ஓசை</a>
+        </div>
         <nav>
             <a href="#">முகப்பு</a>
+            <a href="#about">பற்றி</a>
             <a href="#founder">நிறுவனர்</a>
-            <a href="#editorial">பதிப்பாசிரியர்கள்</a>
-            <a href="#submit">ஆய்வுச் சமர்ப்பிப்பு</a>
+            <a href="#contact">தொடர்பு</a>
         </nav>
     </header>
 
-    <!-- 2. முகப்பு பேனர் பகுதி -->
+    <!-- பேனர் பகுதி -->
     <section class="hero-banner">
-        <div class="banner-overlay">
-            <div class="banner-content">
-                <!-- QUAL Trust Logo -->
-                <img src="images/logo.png" alt="QUAL Trust Logo" class="trust-logo" onerror="this.style.display='none'">
-                
-                <h1 class="journal-title">மௌவல் ஓசை</h1>
-                <p class="journal-subtitle">தமிழ் , ஆங்கில மற்றும் மொழியியல் பன்னாட்டு ஆய்விதழ்</p>
-                <p class="trust-name">QUAL TRUST (Reg. No. BKTV 9/2020)</p>
-                
-                <a href="#submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> ஆய்வுக் கட்டுரையைச் சமர்ப்பிக்க
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. ஆய்விதழ் சிறப்பம்சங்கள் -->
-    <section class="highlights">
-        <div class="highlights-grid">
-            <div class="highlight-item">
-                <i class="fas fa-globe"></i>
-                <h4>பன்னாட்டுத் தர அளவிலான ஆய்விதழ்</h4>
-            </div>
-            <div class="highlight-item">
-                <i class="fas fa-user-check"></i>
-                <h4>மேலாய்வுக் குழு மதிப்பீடு (Peer-Reviewed)</h4>
-            </div>
-            <div class="highlight-item">
-                <i class="fas fa-book-open"></i>
-                <h4>தமிழ், ஆங்கிலம் & மொழியியல் ஆய்வுத் தொகுப்பு</h4>
-            </div>
-            <div class="highlight-item">
-                <i class="fas fa-file-pdf"></i>
-                <h4>திறந்த அணுகல் (Open Access Journal)</h4>
-            </div>
+        <div>
+            <img src="images/logo.png" alt="QUAL Trust" class="trust-logo" onerror="this.src='https://via.placeholder.com/110?text=OUAL+TRUST'">
+            <h1 class="journal-title">மௌவல் ஓசை</h1>
+            <p class="journal-subtitle">இலக்கிய, மொழியியல் பன்னாட்டு ஆய்விதழ்</p>
+            <p class="trust-name">மௌவல் அறக்கட்டளை (Reg. No. BKTV 9/2020)</p>
+            <a href="#contact" class="submit-btn"><i class="fas fa-paper-plane"></i> கட்டுரை சமர்ப்பிக்க</a>
         </div>
     </section>
 
     <div class="container">
 
-        <!-- 4. நிறுவனர் பகுதி -->
-        <h2 class="section-title" id="founder">நிறுவனர்</h2>
+        <!-- பற்றி (About Us) -->
+        <h2 class="section-title" id="about">பற்றி ABOUT</h2>
+        <div class="about-box">
+            <p><strong>மௌவல் அறக்கட்டளை (BKTV 9/2020):</strong> திண்டிவனத்தில் நிறுவப்பட்ட மௌவல் அறக்கட்டளையின் இலக்கிய மேம்பாடு மற்றும் சமூக பணிப்பாரம்பரியத்தின் நீட்சியாகவே "மௌவல் ஓசை இலக்கிய மொழியியல் பன்னாட்டு ஆய்விதழ்" உருவாக்கப்பட்டுள்ளது.</p>
+            <br>
+            <p>2026-ஆம் ஆண்டு இலக்கிய மொழியியல் பன்னாட்டு ஆய்விதழைத் துவக்கி, உலகம் முழுவதும் உள்ள ஆய்வாளர்களின் ஆய்வுக்கட்டுரைகளை ISSN தரத்துடன் வெளியிடும் உயர்ந்த பணிக்கு இணைந்தது.</p>
+        </div>
+
+        <!-- நிறுவனர் (Founder) -->
+        <h2 class="section-title" id="founder">FOUNDER</h2>
         <div class="founder-card">
-            <img src="images/founder.jpg" alt="முனைவர். பாரதி சிவசங்கரி" class="founder-img" onerror="this.src='https://via.placeholder.com/210?text=Founder'">
+            <img src="images/founder.jpg" alt="Dr. Bharathi Sivasankari" class="founder-img" onerror="this.src='https://via.placeholder.com/180?text=Founder+Photo'">
             <div class="founder-info">
-                <h3>முனைவர். பாரதி சிவசங்கரி</h3>
-                <span class="role-badge">நிறுவனர் & முதன்மைப் பதிப்பாசிரியர்</span>
-                <p>உதவிப்பேராசிரியர், தமிழ்த்துறை</p>
-                <p>தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
-                
-                <div class="social-links">
-                    <a href="mailto:drbharathisivasankari@gmail.com" class="social-btn btn-email">
-                        <i class="fas fa-envelope"></i> drbharathisivasankari@gmail.com
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=RJ4YdawAAAAJ&hl=en" target="_blank" class="social-btn btn-scholar">
-                        <i class="fas fa-graduation-cap"></i> Google Scholar
-                    </a>
-                    <a href="tel:8825927692" class="social-btn btn-phone">
-                        <i class="fas fa-phone"></i> 8825927692
-                    </a>
+                <h3>முனைவர். பாரதி சிவசங்கரி | Dr. Bharathi Sivasankari</h3>
+                <p class="role">உதவிப்பேராசிரியர், தமிழ்த்துறை | தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
+                <p><i class="fas fa-envelope"></i> drbharathisivasankari01@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 8825927692</p>
+                <p><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=RJ4YdawAAAAJ&hl=en" target="_blank">Google Scholar Profile</a></p>
+            </div>
+        </div>
+
+        <!-- தொடர்பு (Contact) -->
+        <h2 class="section-title" id="contact">தொடர்பு CONTACT</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>முகவரி & விவரங்கள்</h3>
+                <div class="contact-item">
+                    <i class="fas fa-building"></i>
+                    <p><strong>மௌவல் அறக்கட்டளை</strong><br>Reg. No. BKTV 9/2020</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>திண்டிவனம், தமிழ்நாடு</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>moualtrust2020@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>8825927692</p>
                 </div>
             </div>
         </div>
 
-        <!-- 5. முதன்மை பதிப்பாசிரியர் குழு -->
-        <h2 class="section-title" id="editorial">முதன்மை பதிப்பாசிரியர் குழு</h2>
-        <div class="grid-container">
-
-            <div class="editor-card">
-                <img src="images/ilaiyappillai.jpg" alt="முனைவர். இளையாப்பிள்ளை" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Editor'">
-                <h4>முனைவர். இளையாப்பிள்ளை</h4>
-                <p class="designation">தேர்வு கட்டுப்பாட்டு அலுவலர்</p>
-                <p class="dept">பொழிப்புரை முதன்மைக்</p>
-                <p class="univ">தஞ்சை தமிழ்ப் பல்கலைக்கழகம்</p>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/balu.jpg" alt="முனைவர். செ. பாலு" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Editor'">
-                <h4>முனைவர். செ. பாலு</h4>
-                <p class="designation">இணைப்பேராசிரியர்</p>
-                <p class="dept">தமிழ்த்துறை</p>
-                <p class="univ">அண்ணாமலைப் பல்கலைக்கழகம்</p>
-                <a href="mailto:sellaebalu@gmail.com" class="email-link"><i class="fas fa-envelope"></i> sellaebalu@gmail.com</a>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/kanapathiraman.jpg" alt="முனைவர். V. கணபதிராமன்" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Editor'">
-                <h4>முனைவர். V. கணபதிராமன்</h4>
-                <p class="designation">இணைப்பேராசிரியர்</p>
-                <p class="dept">தமிழ்த்துறை</p>
-                <p class="univ">அண்ணாமலைப் பல்கலைக்கழகம்</p>
-                <a href="mailto:aviavinnash123@gmail.com" class="email-link"><i class="fas fa-envelope"></i> aviavinnash123@gmail.com</a>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/kuppusamy.jpg" alt="முனைவர். பா. குப்புசாமி" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Editor'">
-                <h4>முனைவர். பா. குப்புசாமி</h4>
-                <p class="designation">உதவிப்பேராசிரியர்</p>
-                <p class="dept">தமிழ்த்துறை</p>
-                <p class="univ">அண்ணாமலைப் பல்கலைக்கழகம்</p>
-                <a href="mailto:gingeesamy@gmail.com" class="email-link"><i class="fas fa-envelope"></i> gingeesamy@gmail.com</a>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/krishnaveni.jpg" alt="முனைவர். K. கிருஷ்ணவேணி" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Editor'">
-                <h4>முனைவர். K. கிருஷ்ணவேணி</h4>
-                <p class="designation">இணைப்பேராசிரியர்</p>
-                <p class="dept">ஆங்கிலத்துறை</p>
-                <p class="univ">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/vijayalakshmi.jpg" alt="முனைவர். ரா. விஜயலட்சுமி" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Editor'">
-                <h4>முனைவர். ரா. விஜயலட்சுமி</h4>
-                <p class="designation">பொழிப்புரை முதன்மைக் (பொறுப்பு)</p>
-                <p class="univ">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
-            </div>
-
-        </div>
-
-        <!-- 6. துணை பதிப்பாசிரியர் குழு -->
-        <h2 class="section-title">துணை பதிப்பாசிரியர் குழு</h2>
-        <div class="grid-container">
-
-            <div class="editor-card">
-                <img src="images/natarajan.jpg" alt="முனைவர். அ. நடராசன்" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Sub+Editor'">
-                <h4>முனைவர். அ. நடராசன்</h4>
-                <p class="designation">உதவிப்பேராசிரியர்</p>
-                <p class="dept">தமிழ்த்துறை</p>
-                <p class="univ">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
-                <a href="mailto:natarajan.lingu@gmail.com" class="email-link"><i class="fas fa-envelope"></i> natarajan.lingu@gmail.com</a>
-                <br>
-                <a href="https://www.linkedin.com/in/dr-a-natarajan-ph-d-9778bb60" target="_blank" class="social-btn btn-linkedin" style="margin-top: 10px; padding: 4px 12px; font-size: 0.8rem;">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/bharathkumar.jpg" alt="திரு. ரா. பரத்குமார்" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Sub+Editor'">
-                <h4>திரு. ரா. பரத்குமார்</h4>
-                <p class="designation">உதவிப்பேராசிரியர்</p>
-                <p class="dept">தமிழ்த்துறை</p>
-                <p class="univ">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
-                <a href="mailto:drtamilbarath@gmail.com" class="email-link"><i class="fas fa-envelope"></i> drtamilbarath@gmail.com</a>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/pradheepa.jpg" alt="செல்வி. சே. பிரதீபா" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Sub+Editor'">
-                <h4>செல்வி. சே. பிரதீபா</h4>
-                <p class="designation">உதவிப்பேராசிரியர்</p>
-                <p class="dept">ஆங்கிலத்துறை</p>
-                <p class="univ">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
-                <a href="mailto:pradheepa0120@gmail.com" class="email-link"><i class="fas fa-envelope"></i> pradheepa0120@gmail.com</a>
-            </div>
-
-            <div class="editor-card">
-                <img src="images/bharathi_sub.jpg" alt="முனைவர். பாரதி சிவசங்கரி" class="editor-img" onerror="this.src='https://via.placeholder.com/130?text=Sub+Editor'">
-                <h4>முனைவர். பாரதி சிவசங்கரி</h4>
-                <p class="designation">உதவிப்பேராசிரியர்</p>
-                <p class="dept">தமிழ்த்துறை</p>
-                <p class="univ">தனலட்சுமி சீனிவாசன் பல்கலைக்கழகம், திருச்சி</p>
-                <a href="mailto:bharathisivasankari.soas@dsuniversity.ac.in" class="email-link"><i class="fas fa-envelope"></i> bharathisivasankari.soas@dsuniversity.ac.in</a>
-            </div>
-
-        </div>
-
-        <!-- 7. ஆய்வுச் சமர்ப்பிப்பு வழிகாட்டுதல் -->
-        <div class="submit-section" id="submit">
-            <h3>ஆய்வுக் கட்டுரை சமர்ப்பிக்கும் முறை</h3>
-            <p style="margin-bottom: 12px;">ஆய்வாளர்கள் தங்கள் ஆய்வுக் கட்டுரைகளை பின்வரும் மின்னஞ்சல் முகவரிக்கு அனுப்பி வைக்கலாம்:</p>
-            <ul>
-                <li><strong>மின்னஞ்சல்:</strong> drbharathisivasankari@gmail.com</li>
-                <li><strong>கோப்பு முறைமை (Format):</strong> MS Word (.doc / .docx) மற்றும் PDF கோப்பாக இருக்க வேண்டும்.</li>
-                <li><strong>எழுத்துரு (Font):</strong> தமிழ் - Unicode (Bamini/Latha) / ஆங்கிலம் - Times New Roman.</li>
-                <li>ஆய்வுக் சுருக்கம் (Abstract) மற்றும் திறவுச்சொற்கள் (Keywords) கண்டிப்பாக இடம்பெற வேண்டும்.</li>
-            </ul>
-            <a href="mailto:drbharathisivasankari@gmail.com" class="social-btn btn-email" style="font-size: 1rem; padding: 10px 22px;">
-                <i class="fas fa-paper-plane"></i> கட்டுரையை மின்னஞ்சல் செய்ய
-            </a>
-        </div>
-
     </div>
 
-    <!-- 8. Footer -->
     <footer>
-        <p>&copy; 2026 <strong>மௌவல் ஓசை</strong> - தமிழ் , ஆங்கில மற்றும் மொழியியல் பன்னாட்டு ஆய்விதழ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
-        <p>நிர்வாகம்: <strong>QUAL TRUST</strong> (Reg. No. BKTV 9/2020)</p>
+        <p>&copy; 2026 <strong>மௌவல் ஓசை</strong> - இலக்கிய, மொழியியல் பன்னாட்டு ஆய்விதழ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
     </footer>
 
 </body>
